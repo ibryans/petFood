@@ -27,22 +27,31 @@ public class LoadingActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
 
-        final ImageView logo = findViewById(R.id.logo);
+        // Gerando a imagem
+        ImageView logo = findViewById(R.id.logo);
         Glide.with(this).load(R.drawable.logo).into(logo);
 
         fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), fade_in);
-
-        Handler handle = new Handler();
-
-        final Intent main = new Intent(LoadingActivity.this, MainActivity.class);
-
         logo.startAnimation(fadeIn);
 
+        // Criando a intent main
+        final Intent main = new Intent(LoadingActivity.this, MainActivity.class);
+
+        // Vai para a main depois de 1,5 s
+        Handler handle = new Handler();
         handle.postDelayed(new Runnable() {
             @Override
             public void run() {
+
                 finish();
-                startActivity(main);
+
+                // Verifica se o usuário já se conectou com sua máquina
+                // if (userConnected == true) {
+                    startActivity(main);
+                // } else {
+                //  startActivity(connect);
+                // }
+
             }
         }, 1500);
     }
