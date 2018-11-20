@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "590792318674-enj5qlvdcnn0dd21qpckgpv5pn57uvq9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ibryans.github.io.petfood",
+            "certificate_hash": "8773fb34a1d39e3d7423df4ae096920abdd94c3b"
+          }
+        },
+        {
           "client_id": "590792318674-d93c1db2qdn5n7gatspu5d33n9dg3i7r.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "590792318674-d93c1db2qdn5n7gatspu5d33n9dg3i7r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
