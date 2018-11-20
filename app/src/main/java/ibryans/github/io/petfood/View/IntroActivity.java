@@ -1,7 +1,9 @@
 package ibryans.github.io.petfood.View;
 
 import android.Manifest;
+import android.content.Intent;
 import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -37,5 +39,11 @@ public class IntroActivity extends MaterialIntroActivity {
                         .build());
     }
 
+    @Override
+    public void onFinish() {
+        super.onFinish();
 
+        Intent view = new Intent(this, ScannerActivity.class);
+        startActivity(view);
+    }
 }

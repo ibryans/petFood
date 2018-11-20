@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ibryans.github.io.petfood">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo_dog"
@@ -12,18 +15,20 @@
         <activity android:name=".View.MainActivity"/>
 
         <activity android:name=".View.LoadingActivity"
-            android:theme="@style/NoActionBar">
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".View.NotConnectedActivity"
+        <activity android:name=".View.ScannerActivity"
             android:theme="@style/NoActionBar" />
 
         <activity android:name=".View.IntroActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
+
+        <activity android:name=".View.InitialUserActivity"/>
     </application>
 
 </manifest>

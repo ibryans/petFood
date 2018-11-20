@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="15dp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:padding="10dp"
+        android:text="Bem vindo!"/>
+
+    <!-- Dados do usuário -->
+    <TextView
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Digite seu nome:"/>
+
+    <EditText
+        android:id="@+id/userName"
+        android:layout_width="299dp"
+        android:layout_height="wrap_content" />
+
+
+    <!-- Dados do animal -->
+    <TextView
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Digite o nome de seu animal de estimação:"/>
+
+    <EditText
+        android:id="@+id/petName"
+        android:layout_width="299dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Qual a espécie do animal?"/>
+
+    <Spinner
+        android:id="@+id/especies"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sexo do animal"/>
+
+    <RadioGroup
+        android:layout_marginTop="10dp"
+        android:layout_width="300dp"
+        android:layout_height="100dp">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Macho"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fêmea" />
+
+    </RadioGroup>
+
+
+</LinearLayout>
