@@ -46,6 +46,7 @@ public class ScannerActivity extends Activity implements ZXingScannerView.Result
         bundle.putString("id", rawResult.getText());
         view.putExtras(bundle);
 
+        Toast.makeText(this, "Conectado a: " + rawResult.getText(), Toast.LENGTH_LONG).show();
         startActivity(view);
     }
 }

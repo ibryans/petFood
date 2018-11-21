@@ -2,6 +2,7 @@ package ibryans.github.io.petfood.View;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -9,9 +10,15 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import org.w3c.dom.Text;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import ibryans.github.io.petfood.R;
 
@@ -22,19 +29,32 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final int id = 2;
+        SharedPreferences pref = this.getSharedPreferences("PET07", 0);
 
-        Button btn = findViewById(R.id.btn);
-        final EditText nome = findViewById(R.id.nome);
+        final String id = pref.getString("id","");
+        final String nomeUser = pref.getString("username","");
+
+        TextView txt = findViewById(R.id.txt);
+        txt.setText("Bem vindo, " + nomeUser + "!");
+
+        final EditText period = findViewById(R.id.periodo_alimentacao);
+
+        Button btn = findViewById(R.id.btn_periodo);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Write a message to the database
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference( String.valueOf(id) + "/" + "nome");
 
-                myRef.setValue(nome.getText().toString());
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference ref = database.getReference(id);
+
+                Map<String, Object> userUpdates = new HashMap<>();
+                userUpdates.put("User/period", period.getText().toString());
+
+                ref.updateChildren(userUpdates);
+
+                Toast.makeText(MainActivity.this, "Período definido: " + period.getText().toString() + " segundos", Toast.LENGTH_LONG).show();
+
             }
         });
 

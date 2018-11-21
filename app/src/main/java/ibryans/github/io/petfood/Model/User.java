@@ -2,44 +2,48 @@ package ibryans.github.io.petfood.Model;
 
 public class User {
 
-    //  Login credentials
-    private String login;
-    private String password;
-
     //  User credentials
-    private String userName;
+    private String name;
+    private String petName;
+    private String petEspecie;
+    private String petSex;
 
-
-    public User(String log, String pass, String un) {
-        this.login    = log;
-        this.password = pass;
-        this.userName = un;
+    public User(String userName, String petName, String petEspecie, String petSex) {
+        this.name = userName;
+        this.petName = petName;
+        this.petEspecie = petEspecie;
+        this.petSex = petSex;
     }
 
-
-    /* *** Getters and setters  *** */
-
-    public String getLogin() {
-        return login;
+    public String getName() {
+        return name;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setName(String userName) {
+        this.name = userName;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPetName() {
+        return petName;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPetName(String petName) {
+        this.petName = petName;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getPetEspecie() {
+        return petEspecie;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setPetEspecie(String petEspecie) {
+        this.petEspecie = petEspecie;
+    }
+
+    public String getPetSex() {
+        return petSex;
+    }
+
+    public void setPetSex(String petSex) {
+        this.petSex = petSex;
     }
 }

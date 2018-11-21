@@ -3,6 +3,7 @@ package ibryans.github.io.petfood.View;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.animation.Animation;
@@ -25,15 +26,29 @@ public class LoadingActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
 
-        // Gerando a imagem
+
+        // SharedPreferences
+        final String APP_PREF_ID = "PET07";
+        SharedPreferences pref = this.getSharedPreferences(APP_PREF_ID, 0);
+
+        // Recupero o ID do usuario
+        String id = pref.getString("id", null);
+        final Boolean userConnected;
+
+        // Se ele ja tiver um id, não precisa da tela de introdução :)
+        if (id != null) userConnected = true;
+        else userConnected = false;
+
+
         ImageView logo = findViewById(R.id.logo);
         Glide.with(this).load(R.drawable.logo).into(logo);
 
         fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), fade_in);
         logo.startAnimation(fadeIn);
 
-        // Criando a intent intro
-        final Intent intro = new Intent(LoadingActivity.this, IntroActivity.class);
+
+        final Intent intro = new Intent(this, IntroActivity.class);
+        final Intent main = new Intent (this, MainActivity.class);
 
         // Vai para a intro depois de 1,5 s
         Handler handle = new Handler();
@@ -43,12 +58,12 @@ public class LoadingActivity extends Activity {
 
                 finish();
 
-                // Verifica se o usuário já se conectou com sua máquina
-                // if (userConnected == true) {
+                 // Verifica se o usuário já se conectou com sua máquina
+                 if (userConnected) {
+                    startActivity(main);
+                 } else {
                     startActivity(intro);
-                // } else {
-                //  startActivity(connect);
-                // }
+                 }
 
             }
         }, 1500);

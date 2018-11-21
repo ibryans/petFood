@@ -14,6 +14,7 @@ import agency.tango.materialintroscreen.MessageButtonBehaviour;
 import agency.tango.materialintroscreen.SlideFragmentBuilder;
 import ibryans.github.io.petfood.R;
 
+// Tela de introdução
 public class IntroActivity extends MaterialIntroActivity {
 
     @Override

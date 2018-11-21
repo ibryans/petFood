@@ -4,25 +4,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="20dp"
     tools:context=".View.MainActivity">
 
     <TextView
+        android:id="@+id/txt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp"
-        android:textSize="25sp"
-        android:text="Bem vindo, Bryan!"/>
+        android:textSize="25sp" />
 
-    <EditText
-        android:id="@+id/nome"
+    <TextView
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Digite o seu nome"/>
+        android:text="Definir período de alimentação"/>
 
-    <Button
-        android:id="@+id/btn"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Atualizar dados"/>
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/periodo_alimentacao"
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:hint="A cada tantos segundos" />
+
+        <Button
+            android:layout_marginStart="15dp"
+            android:id="@+id/btn_periodo"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="OK"/>
+
+
+    </LinearLayout>
+
+
 
 </LinearLayout>
