@@ -40,6 +40,7 @@ public class MainActivity extends Activity {
         final EditText period = findViewById(R.id.periodo_alimentacao);
 
         Button btn = findViewById(R.id.btn_periodo);
+        Button alimentar = findViewById(R.id.btn_alimentar);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +55,23 @@ public class MainActivity extends Activity {
                 ref.updateChildren(userUpdates);
 
                 Toast.makeText(MainActivity.this, "Período definido: " + period.getText().toString() + " segundos", Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+        alimentar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference ref = database.getReference(id);
+
+                Map<String, Object> userUpdates = new HashMap<>();
+                userUpdates.put("DarComida", 1);
+
+                ref.updateChildren(userUpdates);
+
+                Toast.makeText(MainActivity.this, "Repondo comida!", Toast.LENGTH_LONG).show();
 
             }
         });
